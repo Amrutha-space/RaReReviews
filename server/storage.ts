@@ -113,7 +113,8 @@ export class DatabaseStorage implements IStorage {
       })
       .from(reviews)
       .leftJoin(users, eq(reviews.authorId, users.id))
-      .leftJoin(categories, eq(reviews.categoryId, categories.id));
+      .leftJoin(categories, eq(reviews.categoryId, categories.id))
+      .$dynamic();
 
     const conditions = [];
 
